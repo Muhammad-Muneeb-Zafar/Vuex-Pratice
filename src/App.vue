@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <JsonData></JsonData>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 
-import JsonData from '@/components/JsonData';
+// import JsonData from '@/components/JsonData';
 
 export default {
   name: 'App',
   components: {
-    JsonData
+    // JsonData
   }
 }
 </script>
