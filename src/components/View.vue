@@ -12,7 +12,7 @@ name: "View",
   }
 },
   created() {
-  this.$http.get('')
+  // this.$http.get('')
   }
 }
 </script>

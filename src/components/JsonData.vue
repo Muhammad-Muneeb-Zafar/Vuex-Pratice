@@ -30,7 +30,7 @@ export default {
 name: "JsonData",
   data () {
   return {
-    info:null,
+    info:[],
     currentPage:1,
     perPage:10,
     fields:[{key: 'id', sortable: true},'title',{key: 'userId', sortable: true},'body' , 'Options']
