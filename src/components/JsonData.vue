@@ -1,24 +1,6 @@
 <template>
   <div>
     <h1>Json PlaceHolder Todos Data </h1>
-<!--    <table class="table">-->
-<!--      <thead>-->
-<!--      <tr>-->
-<!--        <th>ID</th>-->
-<!--        <th>Title</th>-->
-<!--        <th>UserID</th>-->
-<!--        <th>Completed</th>-->
-<!--      </tr>-->
-<!--      </thead>-->
-<!--      <tbody>-->
-<!--        <tr v-for="item in info" :key="item.id">-->
-<!--          <td>{{item.id}}</td>-->
-<!--          <td>{{item.title}}</td>-->
-<!--          <td>{{item.userId}}</td>-->
-<!--          <td>{{item.completed}}</td>-->
-<!--        </tr>-->
-<!--      </tbody>-->
-<!--    </table>-->
     <b-table
         striped
         :fields="fields"
@@ -51,7 +33,6 @@ name: "JsonData",
     info:null,
     currentPage:1,
     perPage:10,
-    rows:100,
     fields:[{key: 'id', sortable: true},'title',{key: 'userId', sortable: true},'body' , 'Options']
 
   }
@@ -60,6 +41,11 @@ name: "JsonData",
     axios
         .get('https://jsonplaceholder.typicode.com/posts')
         .then(response => (this.info = response.data ))
+  },
+  computed: {
+    rows() {
+      return this.info.length;
+    }
   }
 }
 </script>
