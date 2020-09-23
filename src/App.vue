@@ -5,13 +5,9 @@
 </template>
 
 <script>
-
-// import JsonData from '@/components/JsonData';
-
 export default {
   name: 'App',
   components: {
-    // JsonData
   }
 }
 </script>
