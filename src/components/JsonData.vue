@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Json PlaceHolder Todos Data </h1>
+    <h1>Json PlaceHolder Posts Data </h1>
     <b-table
         striped
         :fields="fields"
@@ -8,10 +8,11 @@
         :items="info"
         :per-page="perPage"
         :current-page="currentPage"
+        :primary-key="info.id"
     >
-      <template v-slot:cell(Options)>
-        <b-button size="sm" variant="link"><b-link :to="'/view'">View</b-link></b-button>
-        <b-button size="sm" variant="info"><b-link :to="'/edit'">Edit</b-link></b-button>
+      <template v-slot:cell(id)="data">
+        <b-button size="sm" variant="link"><b-link :to="'/post/'+data.value">View</b-link></b-button>
+        <b-button size="sm" variant="link"><b-link :to="'/edit/'+data.value">Edit</b-link></b-button>
       </template>
     </b-table>
     <b-pagination
@@ -32,14 +33,14 @@ name: "JsonData",
   return {
     info:[],
     currentPage:1,
-    perPage:10,
-    fields:[{key: 'id', sortable: true},'title',{key: 'userId', sortable: true},'body' , 'Options']
+    perPage:5,
+    fields:[{key: 'userId', sortable: true},'title','body',{key: 'id', label: "Options"}]
 
   }
   },
   mounted () {
     axios
-        .get('https://jsonplaceholder.typicode.com/posts')
+        .get('https://my-json-server.typicode.com/Muhammad-Muneeb-Zafar/Vuex-Pratice/posts')
         .then(response => (this.info = response.data ))
   },
   computed: {

@@ -25,5 +25,5 @@ const routing = new VueRouter({
 
 new Vue({
   render: h => h(App),
-  router:routing
+  router:routing,
 }).$mount('#app')

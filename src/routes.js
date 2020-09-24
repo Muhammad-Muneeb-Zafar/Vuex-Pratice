@@ -4,6 +4,6 @@ import Edit from './components/Edit'
 
 export default [
   {path:'/', component: JsonData},
-  {path:'/view/:id', component: View},
-  {path:'/edit', component: Edit}
+  {path:'/post/:id', component: View},
+  {path:'/edit/:id', component: Edit}
 ]
